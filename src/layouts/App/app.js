@@ -50,7 +50,7 @@ class App extends React.Component {
             <Typography variant="title" color="inherit" className={classes.flex}>
               My KPIs - Auburn
             </Typography>
-            <Button color="inherit">{this.state.user.Phone}</Button>
+            <Button color="inherit">{`${this.state.user.Phone}`}</Button>
           </Toolbar>
         </AppBar>
         <TaskList name="Griffin"></TaskList>

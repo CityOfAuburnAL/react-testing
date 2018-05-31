@@ -14,19 +14,18 @@ const styles = theme => ({
 });
 
 function TaskItem(props) {
-	const { classes, name, onClick, completed } = props;
+	const { classes, name, onClick, onDelete, completed } = props;
 	return (
 		<div onClick={onClick}>
 		<ListItem
 		role={undefined}
-		dense
 		button
 		className={(completed ? classes.completed : null)}
 		>
 			<ListItemText primary={name} />
 			<ListItemSecondaryAction>
 				<IconButton aria-label="Delete">
-					<DeleteIcon />
+					<DeleteIcon onClick={(event) => { event.stopPropagation(); onDelete(); }} />
 				</IconButton>
 			</ListItemSecondaryAction>
 		</ListItem>
