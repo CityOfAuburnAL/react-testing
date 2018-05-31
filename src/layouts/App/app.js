@@ -53,7 +53,7 @@ class App extends React.Component {
             <Button color="inherit">{`${this.state.user.Phone}`}</Button>
           </Toolbar>
         </AppBar>
-        <TaskList name={`${this.state.user.Name.FullName`}></TaskList>
+        <TaskList name={`${this.state.user.Name.FullName}`}></TaskList>
       </div>
     );
   }
