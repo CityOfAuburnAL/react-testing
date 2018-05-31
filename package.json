@@ -1,5 +1,6 @@
 {
-  "name": "react-test-two",
+  "name": "coa-my-kpi",
+  "homepage": "https://my.auburnalabama.org/kpi/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
