@@ -20,27 +20,27 @@ import TaskItem from './TaskItem.js';
 
 const styles = theme => ({
   root: {
-    width: '100%',
-	backgroundColor: theme.palette.background.paper,
-	padding: '15px',
-	boxSizing: 'border-box'
+		width: '100%',	
+		padding: '0 15px 30px 0',
+		boxSizing: 'border-box'
   },
   card: {
-	display: "inline-block",
-	position: "relative",
-	width: "100%",
-	margin: "25px 0",
-	boxShadow: "0 1px 4px 0 rgba(0, 0, 0, 0.14)",
-	borderRadius: "3px",
-	color: "rgba(0, 0, 0, 0.87)",
-	background: "#fff",
-	overflow: "visible"
+		display: "inline-block",
+		backgroundColor: theme.palette.background.paper,
+		position: "relative",
+		width: "100%",
+		margin: "25px 0",
+		boxShadow: "0 1px 4px 0 rgba(0, 0, 0, 0.14)",
+		borderRadius: "3px",
+		color: "rgba(0, 0, 0, 0.87)",
+		background: "#fff",
+		overflow: "visible"
   },
   cardHeader: {
     flex: "none",
     margin: "-20px 15px 0",
-	borderRadius: "3px",
-	padding: "15px",
+		borderRadius: "3px",
+		padding: "15px",
     background: "linear-gradient(60deg, #ab47bc, #8e24aa)",
     boxShadow: "0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2)",
     [theme.breakpoints.down("sm")]: {
@@ -57,30 +57,30 @@ const styles = theme => ({
   },
   actionContainer: {
     display: "inline-flex",
-	color: "#FFFFFF",
-	flex: "1 1 auto"
+		color: "#FFFFFF",
+		flex: "1 1 auto"
   },
   actionInputWrapper: {
-	marginRight: "15px",
-	marginLeft: "auto"
+		marginRight: "15px",
+		marginLeft: "auto"
   },
   actionInput: {
-	color: "#FFFFFF",
+		color: "#FFFFFF",
     fontSize: "14px",
     fontWeight: "500",
     lineHeight: "24px"
   },
   actionInputLabel: {
-	color: "rgba(255, 255, 255, 0.54)",
-	'&$actionInputLabelFocused': {
-		color: "#F1F1F1"
-	},
-	'&:hover': {
-		color: "rgba(255, 255, 255, 0.87)"
-	},
-	'&:focus': {
-		color: "#F1F1F1"
-	}
+		color: "rgba(255, 255, 255, 0.54)",
+		'&$actionInputLabelFocused': {
+			color: "#F1F1F1"
+		},
+		'&:hover': {
+			color: "rgba(255, 255, 255, 0.87)"
+		},
+		'&:focus': {
+			color: "#F1F1F1"
+		}
   },
   actionInputLabelFocused: {},
   actionInputUnderline: {
@@ -263,7 +263,7 @@ class TaskList extends React.Component {
 			<section className={classes.root}>
 				<Card className={classes.card}>
 					<CardHeader 
-					title={`${this.props.name}'s Task List`}
+					title="Task List"
 					classes={{
 						root: classes.cardHeader,
 						title: classes.cardTitle,
@@ -317,7 +317,6 @@ class TaskList extends React.Component {
 
 TaskList.propTypes = {
   classes: PropTypes.object.isRequired,
-  name: PropTypes.string
 };
 
 export default withStyles(styles)(TaskList);
