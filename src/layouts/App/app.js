@@ -10,6 +10,7 @@ import {
   AppBar,
   Drawer,
   Hidden,
+  IconButton,
   List,
   ListItem,
   ListItemIcon,
@@ -19,6 +20,7 @@ import {
 } from '@material-ui/core';
 import {
   Dashboard,
+  Menu,
   Person,
 } from '@material-ui/icons';
 import TaskList from 'components/List/TaskList/TaskList';
@@ -57,6 +59,11 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'space-between',
     fontSize: '1.24rem'
+  },
+  navIconHide: {
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
   },
   appName: {
     color: theme.palette.text.secondary,
@@ -103,6 +110,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       user: { Name: {} },
+      mobileOpen: false,
       pages: {
         '/' : { Name: 'Dashboard' },
         '/profile': { Name: 'Profile' },
@@ -115,6 +123,10 @@ class App extends React.Component {
       this.setState({ user: response.data });
     });
   }
+
+  handleDrawerToggle = () => {
+    this.setState({ mobileOpen: !this.state.mobileOpen });
+  };
 
   render() {
     const { classes, theme } = this.props;
@@ -182,6 +194,14 @@ class App extends React.Component {
         <header>
           <AppBar className={classes.appBar} classes={{ root: classes.appBarRoot, colorPrimary: classes.appBarPrimary }} color="primary">
             <Toolbar className={classes.toolBar}>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={this.handleDrawerToggle}
+                className={classes.navIconHide}
+              >
+                <Menu />
+              </IconButton>
               <Typography variant="subheading">{this.state.pages[this.props.location.pathname].Name}</Typography>
               <Typography variant="subheading">{`${this.state.user.Name.FullName}`}</Typography>
             </Toolbar>

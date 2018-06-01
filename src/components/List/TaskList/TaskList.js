@@ -58,11 +58,17 @@ const styles = theme => ({
   actionContainer: {
     display: "inline-flex",
 		color: "#FFFFFF",
-		flex: "1 1 auto"
+		flex: "1 1 auto",
+		[theme.breakpoints.down("sm")]: {
+		  flexWrap: "wrap",
+	  }
   },
   actionInputWrapper: {
 		marginRight: "15px",
-		marginLeft: "auto"
+		marginLeft: "auto",
+		[theme.breakpoints.down("sm")]: {
+		  marginLeft: "0",
+	  }
   },
   actionInput: {
 		color: "#FFFFFF",
