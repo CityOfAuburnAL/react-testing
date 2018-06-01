@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { NavLink, Switch, Route } from 'react-router-dom';
 import config from '_config';
 import axios from 'axios';
 import { withStyles } from '@material-ui/core/styles';
@@ -17,6 +18,7 @@ import {
 } from '@material-ui/core';
 import {
   Dashboard,
+  Person,
 } from '@material-ui/icons';
 import TaskList from 'components/List/TaskList/TaskList';
 
@@ -77,6 +79,13 @@ const styles = theme => ({
       position: 'relative',
     },
   },
+  drawerNavLink: {
+    display: 'block',
+    textDecoration: 'none',
+    '&.active': {
+      backgroundColor: 'rgba(0, 0, 0, .08)'
+    }
+  },
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
@@ -115,10 +124,18 @@ class App extends React.Component {
         </header>
         <main>
           <List component="nav">
-            <ListItem button component="a" href="/">
-              <ListItemIcon><Dashboard/></ListItemIcon>
-              <ListItemText primary="Dashboard"/>
-            </ListItem>
+            <NavLink to={{ pathname: '/' }} className={classes.drawerNavLink} exact>
+              <ListItem button>
+                <ListItemIcon><Dashboard/></ListItemIcon>
+                <ListItemText primary="Dashboard"/>
+              </ListItem>
+            </NavLink>
+            <NavLink to={{ pathname: '/profile' }} className={classes.drawerNavLink}>
+              <ListItem button>
+                <ListItemIcon><Person/></ListItemIcon>
+                <ListItemText primary="User Profile"/>
+              </ListItem>
+            </NavLink>
           </List>
         </main>
       </section>
@@ -169,7 +186,14 @@ class App extends React.Component {
         <main className={classes.content}>
           {/* Stupid but effective way to not fight with the absolutely positioned toolbar */}
           <div className={classes.toolbarSizer} />
-          <TaskList></TaskList>
+          <Switch>
+            <Route exact path='/'>
+              <TaskList></TaskList>
+            </Route>
+            <Route path='/profile'>
+              <p>Coming Soon</p>
+            </Route>
+          </Switch>
         </main>
         
         <footer></footer>
