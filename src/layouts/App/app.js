@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { withRouter } from 'react-router';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import config from '_config';
 import axios from 'axios';
@@ -101,7 +102,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: { Name: {} }
+      user: { Name: {} },
+      pages: {
+        '/' : { Name: 'Dashboard' },
+        '/profile': { Name: 'Profile' },
+      }
     }
   }
 
@@ -177,7 +182,7 @@ class App extends React.Component {
         <header>
           <AppBar className={classes.appBar} classes={{ root: classes.appBarRoot, colorPrimary: classes.appBarPrimary }} color="primary">
             <Toolbar className={classes.toolBar}>
-              <Typography variant="subheading">{`Dashboard - ${this.state.user.Phone}`}</Typography>
+              <Typography variant="subheading">{this.state.pages[this.props.location.pathname].Name}</Typography>
               <Typography variant="subheading">{`${this.state.user.Name.FullName}`}</Typography>
             </Toolbar>
           </AppBar>
@@ -205,6 +210,7 @@ class App extends React.Component {
 App.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true})(App);
+export default withStyles(styles, { withTheme: true})(withRouter(App));
