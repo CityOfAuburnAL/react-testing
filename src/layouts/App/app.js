@@ -141,13 +141,13 @@ class App extends React.Component {
         </header>
         <main>
           <List component="nav">
-            <NavLink to={{ pathname: '/' }} className={classes.drawerNavLink} exact>
+            <NavLink onClick={this.handleDrawerToggle} to={{ pathname: '/' }} className={classes.drawerNavLink} exact>
               <ListItem button>
                 <ListItemIcon><Dashboard/></ListItemIcon>
                 <ListItemText primary="Dashboard"/>
               </ListItem>
             </NavLink>
-            <NavLink to={{ pathname: '/profile' }} className={classes.drawerNavLink}>
+            <NavLink onClick={this.handleDrawerToggle} to={{ pathname: '/profile' }} className={classes.drawerNavLink}>
               <ListItem button>
                 <ListItemIcon><Person/></ListItemIcon>
                 <ListItemText primary="User Profile"/>
