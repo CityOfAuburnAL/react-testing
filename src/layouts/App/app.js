@@ -19,11 +19,12 @@ import {
   Typography,
 } from '@material-ui/core';
 import {
+  Cloud,
   Dashboard,
   Menu,
-  Person,
 } from '@material-ui/icons';
-import TaskList from 'components/List/TaskList/TaskList';
+import DashboardView from 'views/Dashboard/Dashboard';
+import WebView from 'views/Department/IT/Web/Web';
 
 const drawerWidth = 240;
 
@@ -31,7 +32,6 @@ const styles = theme => ({
   root: {
     color: theme.palette.text.primary,
     fontFamily: theme.typography.fontFamily,
-    fontSize: theme.typography.fontSize,
     flexGrow: 1,
     height: '100%',
     zIndex: 1,
@@ -113,7 +113,7 @@ class App extends React.Component {
       mobileOpen: false,
       pages: {
         '/' : { Name: 'Dashboard' },
-        '/profile': { Name: 'Profile' },
+        '/it/web': { Name: 'Web' },
       }
     }
   }
@@ -147,10 +147,10 @@ class App extends React.Component {
                 <ListItemText primary="Dashboard"/>
               </ListItem>
             </NavLink>
-            <NavLink onClick={this.handleDrawerToggle} to={{ pathname: '/profile' }} className={classes.drawerNavLink}>
+            <NavLink onClick={this.handleDrawerToggle} to={{ pathname: '/it/web' }} className={classes.drawerNavLink}>
               <ListItem button>
-                <ListItemIcon><Person/></ListItemIcon>
-                <ListItemText primary="User Profile"/>
+                <ListItemIcon><Cloud/></ListItemIcon>
+                <ListItemText primary="Web"/>
               </ListItem>
             </NavLink>
           </List>
@@ -213,10 +213,10 @@ class App extends React.Component {
           <div className={classes.toolbarSizer} />
           <Switch>
             <Route exact path='/'>
-              <TaskList></TaskList>
+              <DashboardView></DashboardView>
             </Route>
-            <Route path='/profile'>
-              <p>Coming Soon</p>
+            <Route path='/it/web'>
+              <WebView></WebView>
             </Route>
           </Switch>
         </main>
