@@ -1,5 +1,6 @@
-import axios from 'axios'
+import axios from 'axios';
 
+// Useful server list
 const servers = {
   // serverAPI: 'http://localhost:21695',
   serverAPI: 'https://api.auburnalabama.org',
@@ -8,6 +9,15 @@ const servers = {
   serverGIS: 'https://gis.auburnalabama.org'
 }
 
+// Handles redirecting to URL after reauthorization
+if (window.localStorage.getItem('redirect')) {
+  window.location.hash = `#${window.localStorage.getItem('redirect')}`;
+  window.localStorage.removeItem('redirect');
+}
+
+// Handles failure to authorize, saving url, and redirecting to authorization server
+// TODO - This only saves URL state, so if a user fills out a form and submits data but needs to reauthorize, the form data is lost!!!
+// BUG  - This only saves URL state, so if a user fills out a form and submits data but needs to reauthorize, the form data is lost!!!
 axios.interceptors.response.use((response) => {
   return response
 }, function (error) {
