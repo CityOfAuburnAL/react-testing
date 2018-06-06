@@ -48,7 +48,7 @@ const styles = theme => ({
     },
   },
   appBarRoot: {
-    backgroundColor: 'transparent',
+    backgroundColor: theme.palette.background.default,
     boxShadow: 'none',
   },
   appBarPrimary: {
@@ -98,6 +98,10 @@ const styles = theme => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
     padding: `0 ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
+    boxSizing: 'border-box',
+    width: '100%',
+    height: '100%',
+    overflow: 'auto',
   },
   menuButton: {
     marginLeft: -12,

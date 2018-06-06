@@ -59,11 +59,30 @@ function Web({ ...props }) {
 								<main>
 									<ul>
 										<li>To upload a file: go into edit mode, highlight some text and select link. Uploaded document will be available at newly created link location even if link is not saved.</li>
+										<li>Advanced editing is available at: <a href="https://www.auburnalabama.org/cms/" target="_blank" rel="noopener noreferrer">https://www.auburnalabama.org/cms/</a>.</li>
 									</ul>
 								</main>
 							</section>
 						}
 						footer={<small><em>If user can't login we need to sync employees from Eden.</em></small>}
+					/>
+					<RegularCard
+						headerColor="purple"
+						cardTitle="Public Safety"
+						cardSubtitle="PSReporting, Body Camera"
+						content={
+							<section>
+								<header><p>PS Reporting is at: <a href="http://psreporting/" target="_blank" rel="noopener noreferrer">http://psreporting/</a>. Body camera uploading is a desktop app on PS computers and the viewer is available at: <a href="https://admin.auburnalabama.org/" target="_blank" rel="noopener noreferrer">https://admin.auburnalabama.org/</a>.</p></header>
+								<main>
+									<ul>
+										<li>To view PS Reporting you need to be in the appropriate AD Groups (Self-Note: Look up groups in code).</li>
+										<li>Body Camera uploads require the officer to be in the COA database and to be in AD Group (Detectives or Patrol).</li>
+										<li>Body Camera viewing requires advanced Police title: (Self-Note: Look up titles in code).</li>
+									</ul>
+								</main>
+							</section>
+						}
+						footer={<small><em>If user can't login for body camera we need to sync employees from Eden.</em></small>}
 					/>
 				</main>
 			</section>
