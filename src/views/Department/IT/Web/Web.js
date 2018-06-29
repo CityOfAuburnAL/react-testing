@@ -76,7 +76,7 @@ function Web({ ...props }) {
 								<header><p>PS Reporting is at: <a href="http://psreporting/" target="_blank" rel="noopener noreferrer">http://psreporting/</a>. Body camera uploading is a desktop app on PS computers and the viewer is available at: <a href="https://admin.auburnalabama.org/" target="_blank" rel="noopener noreferrer">https://admin.auburnalabama.org/</a>.</p></header>
 								<main>
 									<ul>
-										<li>To view PS Reporting you need to be in the appropriate AD Groups (Self-Note: Look up groups in code. Jarrod put user in correct group. Greg put icon on desktop).</li>
+										<li>To view PS Reporting you need to be in the appropriate AD Groups (Jarrod put user in correct group. Greg put icon on desktop).</li>
 										<li>Body Camera uploads require the officer to be in the COA database and to be in AD Group (Tell Jarrod add user to group: Detectives or Patrol).</li>
 										<li>Body Camera viewing requires advanced Police title: (Tell Chris to change users' position in [COA].[organization].[employee] (find employee with email) to one with access "CAPTAIN,LIEUTENANT-ADMINISTRATION,LIEUTENANT-PATROL,Lieutenant- Patrol,LIEUTENANT-TRAINING,Lieutenant- Training,POLICE CHIEF,Assistant Police Chief,ASSISTANT POLICE CHIEF,SERGEANT-CID,SERGEANT-PATROL,LIEUTENANT-CID,SERGEANT NARCOTICS,DETECTIVE LIEUTENANT NARCOTICS,EVIDENCE & PROPERTY CONTROL SP").</li>
 									</ul>
@@ -119,7 +119,7 @@ function Web({ ...props }) {
 						cardSubtitle="Greg/Jarrod"
 						content={
 							<section>
-								<header><p>Outside of permissions (see above) there have only been issues connecting to the API from odd locations, hard drive space running out, and a strange issue with SD Card corrupted.</p></header>
+								<header><p>Upload app is an exe on network share with desktop shortcuts on the appropriate machines. Search application is at: <a href="https://admin.auburnalabama.org/" target="_blank" rel="noopener noreferrer">https://admin.auburnalabama.org/</a>. Outside of permissions (see above) there have only been issues connecting to the API from odd locations, hard drive space running out, and a strange issue with SD Card corrupted.</p></header>
 								<main>
 									<ul>
 										<li>If user has no desktop icon, tell Greg to place desktop shortcut.</li>
