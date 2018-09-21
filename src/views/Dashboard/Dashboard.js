@@ -27,12 +27,6 @@ class Dashboard extends React.Component {
 		} catch (e) {
 			return false;
 		}
-	
-		if (typeof item === "object" && item !== null) {
-			return item;
-		}
-	
-		return false;
 	}
 
 	parseReportData(report, data) {
@@ -51,9 +45,18 @@ class Dashboard extends React.Component {
 	}
 
 	render() {
+		var styles = {
+			iframe : {
+				width: '100%',
+				height: '50vw',
+				border: 'none',
+			},
+		}
 		return (
 			<section>
 				<TaskList></TaskList>
+				<iframe src="https://static.auburnalabama.org/media/charts/wrm-lake-level/drought-decision.html" title="WRM Chart - Drought" style={styles['iframe']}></iframe>
+				<iframe src="https://static.auburnalabama.org/media/charts/wrm-lake-level/lake-level.html" title="WRM Chart - Lake Level" style={styles['iframe']}></iframe>
 				{this.state.reports.map(report => (
 					<section key={report.ID}>
 						<header><h3>{report.Name}</h3></header>
